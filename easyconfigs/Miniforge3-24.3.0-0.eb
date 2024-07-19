@@ -1,0 +1,40 @@
+easyblock = 'EB_Mamba'
+
+name = 'Miniforge3'
+version = '24.3.0-0'
+
+homepage = 'https://github.com/conda-forge/miniforge'
+description = """Miniforge is a free minimal installer for conda and Mamba specific
+ to conda-forge."""
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/conda-forge/miniforge/releases/download/%(version)s']
+local_arch = {'arm64': 'aarch64'}.get(ARCH, ARCH)
+sources = ['%%(name)s-%%(version)s-Linux-%s.sh' % local_arch]
+checksums = [
+    {
+        '%(name)s-%(version)s-Linux-x86_64.sh':
+            '23367676b610de826f50f7ddc91139a816d4b59bd4c69cc9b6082d9b2e7fe8a3',
+        '%(name)s-%(version)s-Linux-ppc64le.sh':
+            'b7710f5dbab9a49995e027cc72cc729ad54506fbba7b936b56737d1437aa6504',
+        '%(name)s-py312_%(version)s-Linux-aarch64.sh':
+            '6c879fe354d3e26b8d960cff6b1f3cb9d2e58c79c5c07f23fff62469dc5c1480',
+    }
+]
+moduleclass = 'lang'
+
+postinstallcmds = [
+    'wget -O %(installdir)s/enableconda.sh https://raw.githubusercontent.com/colbrydi/easybuild_local/main/enableconda.sh',
+    'echo "channels:" > %(installdir)s/.condarc',
+    'echo "  - conda-forge" >> %(installdir)s/.condarc',
+    'echo "envs_dirs:" >> %(installdir)s/.condarc',
+    'echo "  - ~/.conda/envs/" >> %(installdir)s/.condarc',
+    'echo "auto_activate_base: false" >> %(installdir)s/.condarc',
+]
+
+modluafooter = """
+conflict('Python')
+conflict('Conda')
+source_sh('bash','%(installdir)s/enableconda.sh')
+"""

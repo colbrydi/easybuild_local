@@ -5,7 +5,7 @@ version = '0.2.27'
 homepage = 'https://lmstudio.ai'
 description = "LM Studio - AI powered coding assistant."
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 source_urls = ['https://releases.lmstudio.ai/linux/x86/0.2.27/beta']
 sources = ['LM_Studio-0.2.27.AppImage']
