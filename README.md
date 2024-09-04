@@ -147,16 +147,7 @@ source eb_local_reset.sh
 
 ## Manage Conda Environments (Optional)
 
-If your build requires Python-based dependencies, you might need to manage Conda environments. The repository provides a script, `enableconda.sh`, to help with this.
-
-To activate a Conda environment, you first need to load the `Conda/3` module then run this script.
-
-```
-module load Conda/3
-source enableconda.sh
-```
-
-This script sets up Conda and activates the `base` environment by default. You can customize this as needed for your project.
+If your build requires Python-based dependencies, you might need to create a conda environment to manage those dependencies. To lean more about this visit the ICER docs on [using Conda](https://docs.icer.msu.edu/Using_conda/). The `enableconda.sh` script is meant for the upcoming switch to using miniforge.
 
 
 ## Troubleshooting
