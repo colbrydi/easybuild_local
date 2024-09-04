@@ -145,22 +145,6 @@ To reset the environment, run:
 source eb_local_reset.sh
 ```
 
-## Manage Conda Environments (Optional)
-
-NOTE: We are moving away from Conda/3 and to miniconda TODO: remove this section.
-
-If your build requires Python-based dependencies, you might need to manage Conda environments. The repository provides a script, `enableconda.sh`, to help with this.
-
-To activate a Conda environment, you first need to load the `Conda/3` module then run this script.
-
-```
-module load Conda/3
-source enableconda.sh
-```
-
-This script sets up Conda and activates the `base` environment by default. You can customize this as needed for your project.
-
-
 ## Troubleshooting
 
 If you run into an error like this:
