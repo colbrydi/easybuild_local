@@ -1,6 +1,6 @@
 # Getting Started with the EasyBuild Local Directory
 
-This guide will help you get started with using the EasyBuild repository for local software installations. Follow the steps below to set up your environment, build software, and manage your installations.
+This guide will help you get started with using the EasyBuild repository for local software installations on the Michigan State University (MSU) High Performace Computing Center (HPCC). Follow the steps below to set up your environment, build software, and manage your installations.
 
 ### Table of Contents
 - [First Time Setup Guide](#first-time-setup-guide)
@@ -21,7 +21,7 @@ If this is your first time using EasyBuild or havn't used it in a while, I sugge
 
 ## 1. Clone the Repository
 
-First, clone the repository to your local machine:
+First, clone the repository to your home directory on the HPCC:
 
 ```
 git clone https://github.com/colbrydi/easybuild_local.git
@@ -57,7 +57,7 @@ eb --parallel=8 --robot ./easyconfigs/<FILENAME>.eb
 
 Replace `<FILENAME>` with the name of the configuration file you want to build.
 
-For example, to build QGIS, you would run:
+For example, you can run the example eb file provided by typing the following:
 
 ```
 eb --parallel=8 --robot ./easyconfigs/Hello-2.10-GCCcore-11.2.0.eb 
@@ -73,7 +73,7 @@ source eb_local_use.sh
 
 This adds the locally installed modules to the module search path, allowing you to load and use them.
 
-For example, to load QGIS, you would run:
+For example, to load the provided example, you would run:
 
 ```
 module load Hello/2.10-GCCcore-11.2.0
@@ -144,11 +144,6 @@ To reset the environment, run:
 ```
 source eb_local_reset.sh
 ```
-
-## Manage Conda Environments (Optional)
-
-If your build requires Python-based dependencies, you might need to create a conda environment to manage those dependencies. To lean more about this visit the ICER docs on [using Conda](https://docs.icer.msu.edu/Using_conda/). The `enableconda.sh` script is meant for the upcoming switch to using miniforge.
-
 
 ## Troubleshooting
 
