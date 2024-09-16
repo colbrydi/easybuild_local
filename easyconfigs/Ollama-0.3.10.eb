@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'Ollama'
+version = '0.3.10'
+homepage = 'https://github.com/ollama/ollama'
+description = 'Ollama is a model management platform for AI models.'
+toolchain = {'name': 'system', 'version': ''}
+
+source_urls = ['https://github.com/ollama/ollama/releases/download/v%(version)s/']
+sources = ['ollama-linux-amd64.tgz']
+
+#install_type = 'subdir'
+
+preinstall_cmd = 'mkdir -p {installdir}/bin {installdir}/lib'
+
+sanity_checks = {
+    'files': ['bin/ollama'],
+    'commands': [
+        'ollama --version',
+    ]
+}
+
+sanity_check_paths = {
+    'files': ['bin/ollama'],
+    'dirs': ['lib/']
+}
+
+moduleclass = 'tools'
