@@ -15,16 +15,13 @@ sources = ['ollama-linux-amd64.tgz']
 
 preinstall_cmd = 'mkdir -p {installdir}/bin {installdir}/lib'
 
-sanity_checks = {
-    'files': ['bin/ollama'],
-    'commands': [
-        'ollama --version',
-    ]
-}
-
 sanity_check_paths = {
     'files': ['bin/ollama'],
     'dirs': ['lib/']
 }
+
+sanity_check_commands = [
+        'ollama --version',
+]
 
 moduleclass = 'tools'
