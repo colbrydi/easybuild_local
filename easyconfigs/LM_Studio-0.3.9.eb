@@ -1,0 +1,24 @@
+easyblock = 'Binary'
+
+name = 'LM_Studio'
+version = '0.3.9'
+homepage = 'https://lmstudio.ai'
+description = "LM Studio - AI powered coding assistant."
+
+toolchain = SYSTEM
+## Updated source URL and file for version 0.3.9-6 (x64)
+source_urls = ['https://installers.lmstudio.ai/linux/x64/0.3.9-6']
+sources = ['LM-Studio-0.3.9-6-x64.AppImage']
+
+sanity_check_paths = {
+    'files': ['bin/LM_Studio'],
+    'dirs': []
+}
+
+postinstallcmds = [
+    'mkdir -p %(installdir)s/bin',
+    'cp %(builddir)s/LM-Studio-0.3.9-6-x64.AppImage %(installdir)s/bin/LM_Studio',
+    'chmod +x %(installdir)s/bin/LM_Studio'
+]
+
+moduleclass = 'tools'
