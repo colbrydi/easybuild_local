@@ -1,0 +1,33 @@
+easyblock = 'PythonPackage'
+
+name = 'pymfem'
+version = '4.5.2'  
+
+homepage = 'https://github.com/mfem/PyMFEM'
+description = "Python wrapper for MFEM using SWIG"
+
+toolchain = {'name': 'foss', 'version': '2023a'} 
+
+# Use system Python and SWIG
+dependencies = [
+    ('Python', '3.11.3'),
+    ('MFEM', '4.8'),
+    ('SWIG', '4.1.1')
+]
+
+use_pip = True
+
+# Point to the existing MFEM installation
+buildopts = '--mfem-include=$MFEM_DIR/include --mfem-lib=$MFEM_BUILD_DIR'
+
+# If pymfem is not on PyPI, use GitHub
+sources = ['https://github.com/mfem/PyMFEM/archive/refs/tags/v%(version)s.tar.gz']
+source_urls = ['https://github.com/mfem/PyMFEM']
+
+sanity_check_paths = {
+    'files': ['lib/python%(pyshortver)s/site-packages/pymfem/__init__.py'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages/pymfem'],
+}
+
+
+
